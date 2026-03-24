@@ -8,6 +8,7 @@ export const Settings: CollectionConfig = {
       type: 'radio',
       required: true,
       options: ['a', 'b'],
+      defaultValue: 'a',
     },
   ],
 }
