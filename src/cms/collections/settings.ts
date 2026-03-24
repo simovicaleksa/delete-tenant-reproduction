@@ -4,9 +4,10 @@ export const Settings: CollectionConfig = {
   slug: 'settings',
   fields: [
     {
-      name: 'siteName',
-      type: 'text',
+      name: 'config',
+      type: 'radio',
       required: true,
+      options: ['a', 'b'],
     },
   ],
 }

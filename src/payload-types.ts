@@ -148,7 +148,6 @@ export interface Media {
 export interface Tenant {
   id: number;
   name: string;
-  domain: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -159,7 +158,7 @@ export interface Tenant {
 export interface Setting {
   id: number;
   tenant?: (number | null) | Tenant;
-  siteName: string;
+  config: 'a' | 'b';
   updatedAt: string;
   createdAt: string;
 }
@@ -169,8 +168,6 @@ export interface Setting {
  */
 export interface User {
   id: number;
-  firstName?: string | null;
-  lastName?: string | null;
   roles: ('super-admin' | 'user')[];
   tenants?:
     | {
@@ -304,7 +301,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface SettingsSelect<T extends boolean = true> {
   tenant?: T;
-  siteName?: T;
+  config?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -314,7 +311,6 @@ export interface SettingsSelect<T extends boolean = true> {
  */
 export interface TenantsSelect<T extends boolean = true> {
   name?: T;
-  domain?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -323,8 +319,6 @@ export interface TenantsSelect<T extends boolean = true> {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
-  firstName?: T;
-  lastName?: T;
   roles?: T;
   tenants?:
     | T
